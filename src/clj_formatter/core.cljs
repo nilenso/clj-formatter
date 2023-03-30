@@ -14,9 +14,13 @@
   (let [elem (js/document.querySelector dom-query)]
     (.-value elem)))
 
+(defn format-code [unformatted-code]
+  (cljfmt/reformat-string unformatted-code))
+
 (defn handle-on-format [_]
   (-> "#unformatted-code-area"
-      get-input-value))
+      get-input-value
+      format-code))
 
 (let [el (js/document.getElementById "submit-unformatted-code")]
   (.addEventListener el "click" handle-on-format))
