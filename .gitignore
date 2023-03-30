@@ -1,0 +1,15 @@
+pom.xml
+*jar
+/lib/
+/classes/
+/out/
+/release/
+/target/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.repl*
+.calva
+.clj-kondo
+.cljs_node_repl
+.lsp
