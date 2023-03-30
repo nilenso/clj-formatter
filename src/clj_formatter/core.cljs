@@ -17,10 +17,15 @@
 (defn format-code [unformatted-code]
   (cljfmt/reformat-string unformatted-code))
 
+(defn render-formatted-code [formatted-code]
+  (let [output-div (js/document.getElementById "output")]
+    (set! (. output-div -innerText) formatted-code)))
+
 (defn handle-on-format [_]
   (-> "#unformatted-code-area"
       get-input-value
-      format-code))
+      format-code
+      render-formatted-code))
 
 (let [el (js/document.getElementById "submit-unformatted-code")]
   (.addEventListener el "click" handle-on-format))
